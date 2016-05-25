@@ -1,7 +1,12 @@
 #!/bin/bash
 
 #script para connectar a rede wifi
-#
+1
+2
+3
+
+
+
 
 #captura nome interface
 interface=`ifconfig | grep w | cut -d" " -f1`
