@@ -1,28 +1,35 @@
 #!/bin/bash
+#CARADEJUMENTO
 
-#script para connectar a rede wifi
-4
-5
-6
+source functions
 
-#captura nome interface
-interface=`ifconfig | grep w | cut -d" " -f1`
+
+Name_interface
+Names_redes $name_interface
+#echo ${names_redes[1]}
+Names_redes_registradas
+
+
+
+
+
 
 #scanneando redes 
-if [ -n interface ]; then
-  array_ssid=(`iw dev $interface scan | grep -i "SSID" | cut -d: -f2`)
-  ssid=`iw dev $interface scan | grep -i "SSID" | cut -d: -f2`
-fi
+#if [ -n interface ]; then
+#  array_ssid=(`iw dev $interface scan | grep -i "SSID" | cut -d: -f2`)
+#  ssid=`iw dev $interface scan | grep -i "SSID" | cut -d: -f2`
+#fi
 
-qt=`wc -l << eof
-> $ssid
-eof` 
+#qt=`wc -l << eof
+#> $ssid
+#eof` 
 
-for (( i=0; i<=$(( $qt - 1)); i++ ))
-do  
- echo "opção: `echo $((i+1))` = " ${array_ssid[@]:$i:1}
-done
+#for (( i=0; i<=$(( $qt - 1)); i++ ))
+#do  
+# echo "opção: `echo $((i+1))` = " ${array_ssid[@]:$i:1}
+#done
 
-echo -e "\n Digite o numero da opção da redes:"; read num
-clear
-echo -e "Você escolheu:  ${array_ssid[@]:(( $num - 1 )):1} \n Digite a Senha: \b ";read num 
+
+#echo -e "\n Digite o numero da opção da redes:"; read num
+#clear
+#echo -e "Você escolheu:  ${array_ssid[@]:(( $num - 1 )):1} \n Digite a Senha: \b "

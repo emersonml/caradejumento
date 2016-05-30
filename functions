@@ -1,0 +1,65 @@
+#!/bin/bash
+#FUNCTIONS
+
+#Dev_exist?
+
+ #LAVANTA INTERFACE E CAPTURA NOME
+Name_interface(){
+  name_interface=`ifconfig | grep wla | cut -d" " -f1`
+  if [ -z $name_interface ]; then
+      ifconfig wlan0 up
+      sleep 2
+      name_interface=`ifconfig | grep wla | cut -d" " -f1`
+      if [ -z $name_interface ]; then
+         echo "Não foi possível levantar Interface"
+        else 
+	  echo "Interface Lavantada"
+        	
+      fi 
+  fi
+ 
+ return
+}
+
+ #CAPTURA NOME REDES
+Names_redes(){
+ names_redes=(`iw dev $1 scan | grep -i "SSID" | cut -d: -f2`)
+ return
+}
+
+Names_redes_registradas(){
+  if [ -s registros  ]; then
+     echo "arq não vazio"
+          
+  fi
+}
+
+Menu_redes(){
+  echo "vc está em menu_redes"
+}
+
+
+
+#Conectar(){
+    
+  
+
+# wpa_passphrase minharede minhapassphrase > /etc/wpa_supplicant.conf
+  #wpa_supplicant -i wlan0 -c /etc/wpa_supplicant.conf -d -D wext
+
+#}
+
+
+
+#array_ssid=(`iw dev $interface scan | grep -i "SSID" | cut -d: -f2`)
+#list_rede(){
+
+#if [ -n interface ]; then
+    
+#fi
+
+#qt=${#array_ssid[@]}
+
+
+#for (( i=0; i<))
+#}
