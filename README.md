@@ -1,2 +1,0 @@
-# caradejumento
-script connect wireless
